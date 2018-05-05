@@ -1,0 +1,12 @@
+# Spectrum Scale Migration policy, excluding Space Management, Snapshot directories and also files under 200KB. Including /directory1/directory2 directory and subdirectory 
+
+RULE 'Spectrum Protect Pool'
+    EXTERNAL POOL 'SPACEMGDISK'
+        EXEC '/admin/scripts/mmpolicyhsm.bat'
+        OPTS '-v'
+
+RULE 'HSM'
+    MIGRATE
+        FROM POOL 'system'
+    TO POOL 'SPACEMGDISK'
+        WHERE NOT ( LOWER(PATH_NAME) LIKE LOWER('/%.SpaceMan%%') OR LOWER(PATH_NAME) LIKE LOWER('/%.snapshots%%') OR FILE_SIZE < 204800 ) AND ( LOWER(PATH_NAME) LIKE LOWER('/directory1/directory2%') AND CURRENT_TIMESTAMP - ACCESS_TIME > INTERVAL '90' DAYS )
