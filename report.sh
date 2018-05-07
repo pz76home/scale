@@ -1,14 +1,14 @@
 #!/bin/bash
 
 
-#Spectrum Scale main report script. Reports on ondisk, migrated and premigrated capacities
+#Spectrum Scale main report script (the path in the for loop is the top level directory). Reports on ondisk, migrated and premigrated capacities
 
 WORKING_DIR=/admin/scripts/report/
 OUTPUT_DIR=/admin/scripts/report/output
 
 echo "Test file placement and quota report" > ${WORKING_DIR}report.txt
 
-for DIR in `find /filesystem/top_level_directory -maxdepth 1 -mindepth 1 -type d`
+for DIR in `find /filesystem/top_level_directory/ -maxdepth 1 -mindepth 1 -type d`
 do
 export BASE=`basename $DIR`
 
