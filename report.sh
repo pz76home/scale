@@ -16,15 +16,15 @@ sed 's|DIR|'$DIR'|g; s|BASE|'$BASE'|g' /admin/scripts/report/migrated_policy.txt
 sed 's|DIR|'$DIR'|g; s|BASE|'$BASE'|g' /admin/scripts/report/ondisk_policy.txt > ${WORKING_DIR}${BASE}.ondisk.txt
 sed 's|DIR|'$DIR'|g; s|BASE|'$BASE'|g' /admin/scripts/report/premig_policy.txt > ${WORKING_DIR}${BASE}.premig.txt
 
-/usr/lpp/mmfs/bin/mmapplypolicy ci-nas -N all -a 8 -f $OUTPUT_DIR -P ${WORKING_DIR}${BASE}.migrated.txt  -I defer
+/usr/lpp/mmfs/bin/mmapplypolicy filesystem -N all -a 8 -f $OUTPUT_DIR -P ${WORKING_DIR}${BASE}.migrated.txt  -I defer
 
 sleep 2
 
-/usr/lpp/mmfs/bin/mmapplypolicy ci-nas -N all -a 8 -f $OUTPUT_DIR -P ${WORKING_DIR}${BASE}.ondisk.txt -I defer
+/usr/lpp/mmfs/bin/mmapplypolicy filesystem -N all -a 8 -f $OUTPUT_DIR -P ${WORKING_DIR}${BASE}.ondisk.txt -I defer
 
 sleep 2
 
-/usr/lpp/mmfs/bin/mmapplypolicy ci-nas -N all -a 8 -f $OUTPUT_DIR -P ${WORKING_DIR}${BASE}.premig.txt -I defer
+/usr/lpp/mmfs/bin/mmapplypolicy filesystem -N all -a 8 -f $OUTPUT_DIR -P ${WORKING_DIR}${BASE}.premig.txt -I defer
 
 sleep 1
 
