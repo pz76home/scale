@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 
-
+#Used for report.sh disk and tape usage report script
 
 import sys
 sum = 0
