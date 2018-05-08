@@ -1,0 +1,3 @@
+RULE 'include hsm migrated files' list 'BASEmigrated'
+SHOW( varchar(kb_allocated) || '  ' || varchar(file_size) || ' ' || varchar(user_id) || ' ' || varchar(group_id) )
+WHERE PATH_NAME LIKE 'DIR%' AND MISC_ATTRIBUTES LIKE '%V%'
