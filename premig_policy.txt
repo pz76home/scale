@@ -1,0 +1,3 @@
+RULE 'include hsm premigrated files' list 'BASEpremig'
+SHOW( varchar(kb_allocated) || '  ' || varchar(file_size) || ' ' || varchar(user_id) || ' ' || varchar(group_id) )
+WHERE PATH_NAME LIKE 'DIR%' AND MISC_ATTRIBUTES LIKE '%M%' AND MISC_ATTRIBUTES NOT LIKE '%V%'
