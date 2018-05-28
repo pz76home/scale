@@ -47,3 +47,4 @@ touch ${OUTPUT_DIR}/list.${BASE}premig
 ${WORKING_DIR}capacity.py < ${OUTPUT_DIR}/list.${BASE}premig >> ${WORKING_DIR}report.txt
 
 echo "--------------------------------------------------------------------------------------" >> ${WORKING_DIR}report.txt
+done
